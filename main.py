@@ -59,10 +59,6 @@ starttime=time.time()
 
 if not os.path.exists(CONF['tasks_dir']):
     os.mkdir(CONF['tasks_dir'])
-    # print("Directory " , CONF['tasks_dir'] ,  " Created ")
-# else:
-    # print("Directory " , CONF['tasks_dir'] ,  " already exists")
-
 
 # while True:
 for x in range(10):
@@ -74,7 +70,6 @@ for x in range(10):
         is_locked=is_locked,
         url=get_current_tab_url(),
     )
-    # print(data)
     write_log(data)
     time.sleep(1.0 - ((time.time() - starttime) % 1.0))
 

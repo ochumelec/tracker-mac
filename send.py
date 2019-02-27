@@ -22,7 +22,6 @@ def send_file(file):
         r = requests.post(API_URL, files={file: f})
         # print(r.content)
         code = r.status_code
-        # print('status:'+str(code))
         if code == 200:
             os.remove(file)
 
@@ -37,7 +36,5 @@ for x in range(2):
         file = mypath+'/'+f
         # print(file)
         send_file(file)
-
-    # time.sleep(60.0 - ((time.time() - starttime) % 60.0))
 
 print('finish send!')
