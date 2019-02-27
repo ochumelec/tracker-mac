@@ -11,3 +11,10 @@ then
 then in google chrome set 
 
 *View ->Developer -> Allow javascript from Apple events *
+
+
+to run chmod 777 run.sh
+
+and run
+
+/run.sh
