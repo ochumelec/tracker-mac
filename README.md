@@ -8,6 +8,8 @@ then
 
 *brew install chrome-cli*
 
+*pip install pyobjc*
+
 then in google chrome set 
 
 *View ->Developer -> Allow javascript from Apple events *
