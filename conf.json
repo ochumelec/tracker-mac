@@ -1,0 +1,6 @@
+{
+  "log_urls": true,
+  "log_lockscreen": true,
+  "tasks_dir": "tasks",
+  "api_url": "https://botomaker.com/api/test_py"
+}
