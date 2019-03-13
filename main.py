@@ -17,6 +17,7 @@ def read_conf(fp):
         print(e)
     return data
 
+
 LOG_FILE = 'data.log'
 CONF_FILE = 'conf.json'
 CONF = read_conf(CONF_FILE)
@@ -28,15 +29,18 @@ def notify(title, subtitle, message):
     m = '-message {!r}'.format(message)
     os.system('terminal-notifier {}'.format(' '.join([m, t, s])))
 
+
 def get_app_name():
     from AppKit import NSWorkspace
     activeAppName = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
     return activeAppName
 
+
 def get_is_locked():
     d = Quartz.CGSessionCopyCurrentDictionary()
     is_locked = d.get("CGSSessionScreenIsLocked", 0)
     return is_locked
+
 
 def get_current_tab_url():
     result = subprocess.run(['chrome-cli', 'info'], stdout=subprocess.PIPE)
@@ -49,23 +53,23 @@ def get_current_tab_url():
 
 def write_log(data):
     d = datetime.datetime.now()
-    with open(CONF['tasks_dir']+'/'+d.strftime("%Y_%m_%d_%H_%M")+'_'+LOG_FILE, 'a') as outfile:
+    with open(CONF['tasks_dir'] + '/' + d.strftime("%Y_%m_%d_%H_%M") + '_' + LOG_FILE, 'a') as outfile:
         json.dump(data, outfile)
         outfile.write("\n")
 
 
-starttime=time.time()
-
+starttime = time.time()
 
 if not os.path.exists(CONF['tasks_dir']):
     os.mkdir(CONF['tasks_dir'])
 
-# while True:
-for x in range(10):
+while True:
+    # for x in range(10):
     app_name = get_app_name()
     is_locked = int(get_is_locked())
     data = dict(
         date=str(datetime.datetime.now()),
+        user_id=CONF['user_id'],
         app_name=app_name,
         is_locked=is_locked,
         url=get_current_tab_url(),
@@ -73,5 +77,4 @@ for x in range(10):
     write_log(data)
     time.sleep(1.0 - ((time.time() - starttime) % 1.0))
 
-
-print('finish main!')
+# print('finish main!')
