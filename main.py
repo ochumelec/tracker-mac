@@ -68,7 +68,7 @@ while True:
     app_name = get_app_name()
     is_locked = int(get_is_locked())
     data = dict(
-        date=str(datetime.datetime.now()),
+        date=str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
         user_id=CONF['user_id'],
         app_name=app_name,
         is_locked=is_locked,
@@ -77,4 +77,6 @@ while True:
     write_log(data)
     time.sleep(1.0 - ((time.time() - starttime) % 1.0))
 
-# print('finish main!')
+    print('finish main!')
+    break
+

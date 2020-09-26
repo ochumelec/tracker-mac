@@ -41,4 +41,7 @@ while True:
         # print(file)
         send_file(file)
 
-# print('finish send!')
+    print('finish send!')
+    break
+
+
