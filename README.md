@@ -8,7 +8,9 @@ then
 
 *brew install chrome-cli*
 
-*pip install pyobjc*
+*pip3 install -U pyobjc*
+
+*pip3 install pyobjc-framework-Quartz*
 
 then in google chrome set 
 

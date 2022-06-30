@@ -17,14 +17,15 @@ def read_conf(fp):
 CONF_FILE = 'conf.json'
 CONF = read_conf(CONF_FILE)
 
-API_URL = CONF['api_url'] + '?api_key' + CONF['api_key']
+API_URL = CONF['api_url'] + '?api_key=' + CONF['api_key']
 
 
 def send_file(file):
     with open(file, 'rb') as f:
         r = requests.post(API_URL, files={'file': f})
-        # print(r.content)
         code = r.status_code
+        # print(r.text)
+        # print(code)
         if code == 200:
             os.remove(file)
 
@@ -34,11 +35,10 @@ starttime = time.time()
 
 while True:
     # for x in range(2):
-    time.sleep(60)
     files = os.listdir(mypath)
     for f in files:
         file = mypath + '/' + f
-        # print(file)
         send_file(file)
-
+        # break
+    time.sleep(60)
 # print('finish send!')

@@ -3,6 +3,6 @@
   "log_urls": true,
   "log_lockscreen": true,
   "tasks_dir": "tasks",
-  "api_url": "https://botomaker.com/api/test_py",
+  "api_url": "https://botomaker.com/api/track_mac",
   "api_key": "ae232k3k2j3n4j23n42n34j23j4n23"
 }
