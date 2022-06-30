@@ -87,13 +87,9 @@ while True:
         app_id=app_id,
         app_name=get_app_name(),
         is_locked=str(is_locked),
-        url=current_url,
+        url=current_url
     )
     # print(data)
     if (is_locked == 0):
         write_log(data)
     time.sleep(1.0 - ((time.time() - starttime) % 1.0))
-
-    # print('finish main!')
-    # break
-

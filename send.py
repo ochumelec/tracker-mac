@@ -39,6 +39,5 @@ while True:
     for f in files:
         file = mypath + '/' + f
         send_file(file)
-        # break
     time.sleep(60)
 # print('finish send!')
